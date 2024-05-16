@@ -1,0 +1,40 @@
+<!-- Nav tabs -->
+<ul class="nav nav-tabs" id="navId">
+    <li class="nav-item">
+        <a href="{% url 'index' %}" class="nav-link active">Home</a>
+    </li>
+    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Courses</a>
+        <div class="dropdown-menu">
+            {% for course_name in courses %}
+            <a class="dropdown-item" href="{% url 'course_questions' course_name %}">{{ course_name }}</a>
+            {% endfor %}
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#">More Courses to be added...</a>
+        </div>
+    </li>
+    <li class="nav-item">
+        <a href="#" class="nav-link disabled">COMING SOON</a>
+    </li>
+    <li class="nav-item">
+        <a href="https://ezekiel-okebule.vercel.app" class="nav-link">Created by 11011</a>
+    </li>
+</ul>
+
+<!-- Tab panes -->
+<div class="tab-content mt-3">
+    <div class="tab-pane fade show active" id="tab1Id" role="tabpanel"></div>
+    <div class="tab-pane fade" id="tab2Id" role="tabpanel"></div>
+    <div class="tab-pane fade" id="tab3Id" role="tabpanel"></div>
+    <div class="tab-pane fade" id="tab4Id" role="tabpanel"></div>
+    <div class="tab-pane fade" id="tab5Id" role="tabpanel"></div>
+</div>
+
+<script>
+    $(document).ready(function(){
+        $('#navId a').on('click', function (e) {
+            e.preventDefault();
+            $(this).tab('show');
+        });
+    });
+</script>

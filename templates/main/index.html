@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block title %}
+<title>CMP Quiz</title>
+{% endblock %}
+
+{% block body %}
+
+{% include 'nav.html' %}
+
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <h1 class="mt-4">Courses Available</h1>
+            <div class="list-group">
+                <p>
+                    <h5>Practice the following courses</h5>
+                </p>
+                {% for course_name in courses %}
+                    <a href="{% url 'course_questions' course_name %}" class="list-group-item list-group-item-action">
+                        {{ course_name }}
+                    </a>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    <div class="row mt-3">
+        <p class="col-12">
+            <span>More courses would be added...</span>
+        </p>
+    </div>
+</div>
+
+{% include 'footer.html' %}
+
+{% endblock %}
